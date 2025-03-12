@@ -1,0 +1,29 @@
+Bài 6.1:
+- Nếu users chọn "Cancel" thì sẽ hiện message là "You've chosen: No"
+-
+import javax.swing.JOptionPane;
+
+public class ChoosingOption {
+    public static void main(String[] args) {
+        // Tạo các tùy chọn tùy chỉnh
+        String[] options = {"I do", "I don't"};
+
+        // Hiển thị hộp thoại với các tùy chọn mới
+        int option = JOptionPane.showOptionDialog(
+            null,
+            "Do you want to change to the first class ticket?",
+            "Choose an option",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options, // Danh sách tùy chọn
+            options[0] // Tùy chọn mặc định
+        );
+
+        // Hiển thị kết quả lựa chọn
+        JOptionPane.showMessageDialog(null, "You've chosen: " + options[option]);
+
+        System.exit(0);
+    }
+}
+ 
