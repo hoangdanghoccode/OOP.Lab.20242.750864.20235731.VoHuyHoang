@@ -40,5 +40,10 @@ public class Cart {
     	}
     	return sum;
     }
-    
-}
+    public void display() {
+    	for(int i=0;i<qtyOrdered;i++) {
+    		  System.out.printf("%-2d  %-25s  %.2f\n", i + 1, itemsOrdered[i].getTitle(), itemsOrdered[i].getCost());
+        }
+    	}
+    }
+

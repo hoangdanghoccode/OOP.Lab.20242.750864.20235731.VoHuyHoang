@@ -1,10 +1,10 @@
 
 public class DigitalVideoDisc {
-      public String title;
-      public String category;
-      public String director;
-      public int length;
-      public float cost;
+      private String title;
+      private String category;
+      private String director;
+      private int length;
+      private float cost;
 	public String getTitle() {
 		return title;
 	}
