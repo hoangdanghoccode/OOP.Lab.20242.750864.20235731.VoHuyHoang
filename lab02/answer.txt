@@ -1,0 +1,16 @@
+section 10.
+Nếu cả hai constructor đều chỉ có một tham số kiểu String, Java sẽ không cho phép vì trình biên dịch sẽ không thể phân biệt được chúng. Để tránh lỗi này, ta thêm một tham số phụ.
+
+section 15.
+1) Trong hàm swap, Java truyền giá trị của tham chiếu (reference value) vào o1 và o2.
+
+Việc đổi chỗ o1, o2 không ảnh hưởng đến biến bên ngoài vì chỉ là thay đổi bản sao của địa chỉ gốc.
+
+=> Kết quả: jungleDVD và cinderellaDVD không bị đổi.
+
+2) Java vẫn truyền bản sao của địa chỉ đối tượng jungleDVD.
+
+Nhưng vì dvd.setTitle(title) thao tác trên đối tượng mà tham chiếu đang trỏ tới, nên giá trị bên trong đối tượng bị thay đổi.
+
+Tuy nhiên, dòng dvd = new DigitalVideoDisc(...) không ảnh hưởng ra ngoài — vì nó chỉ thay đổi bản sao của tham chiếu.
+
