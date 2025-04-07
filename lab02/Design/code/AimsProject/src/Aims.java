@@ -12,8 +12,10 @@ public static void main(String[] args) {
 	DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation",18.99f);
 	anOrder.addDigitalVideoDisc(dvd3);
 	
+	anOrder.removeDigitalVideoDisc(dvd2);
+	
 	anOrder.display();
 	System.out.println("Total Cost is: ");
-	System.out.println(anOrder.calculateCost());
+	System.out.printf("%.2f", anOrder.calculateCost());
 }
 }

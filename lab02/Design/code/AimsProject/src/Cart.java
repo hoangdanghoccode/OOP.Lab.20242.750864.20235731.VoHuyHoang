@@ -7,7 +7,7 @@ public class Cart {
     	if(qtyOrdered<MAX_NUMBERS_ORDERED) {
     		itemsOrdered[qtyOrdered]=disc;
     		qtyOrdered+=1;
-    		System.out.println("The disc has been added");
+    		System.out.println( disc.getTitle() + " has been added");
     		
     	}
     	else {
@@ -25,7 +25,7 @@ public class Cart {
     			}
     			itemsOrdered[qtyOrdered-1]=null;
     			qtyOrdered--;
-    			System.out.println("The disc has been removed");
+    			System.out.println(disc.getTitle() + " has been removed");
     			break;
     		}
     	}
