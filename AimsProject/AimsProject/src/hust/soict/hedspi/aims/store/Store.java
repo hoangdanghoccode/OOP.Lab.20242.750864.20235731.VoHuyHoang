@@ -1,47 +1,43 @@
 package hust.soict.hedspi.aims.store;
 
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import java.util.ArrayList;
+import hust.soict.hedspi.aims.media.Media;
 
 public class Store {
-    public static final int MAX_ITEMS = 100;
-    private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[MAX_ITEMS];
-    private int qty = 0;
+    private ArrayList<Media> itemsInStore = new ArrayList<>();
 
-    public void addDVD(DigitalVideoDisc disc) {
-        if (qty >= MAX_ITEMS) {
-            System.out.println("The store is full. Cannot add more DVDs.");
+    // Thêm một Media (DVD, Book, CD, v.v.) vào Store
+    public void addMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+            itemsInStore.add(media);
+            System.out.println(media.getTitle() + " has been added to the store.");
         } else {
-            itemsInStore[qty] = disc;
-            qty++;
-            System.out.println(disc.getTitle() + " has been added to the store.");
+            System.out.println(media.getTitle() + " is already in the store.");
         }
     }
 
-    public void removeDVD(DigitalVideoDisc disc) {
-        boolean found = false;
-        for (int i = 0; i < qty; i++) {
-            if (itemsInStore[i].equals(disc)) {
-                found = true;
-                for (int j = i; j < qty - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[qty - 1] = null;
-                qty--;
-                System.out.println(disc.getTitle() + " has been removed from the store.");
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("DVD not found in the store.");
+    // Xóa một Media khỏi Store
+    public void removeMedia(Media media) {
+        if (itemsInStore.contains(media)) {
+            itemsInStore.remove(media);
+            System.out.println(media.getTitle() + " has been removed from the store.");
+        } else {
+            System.out.println(media.getTitle() + " is not in the store.");
         }
     }
 
-    // Optional: Show all DVDs currently in store
-    public void displayStore() {
-        System.out.println("DVDs available in the store:");
-        for (int i = 0; i < qty; i++) {
-            System.out.println((i + 1) + ". " + itemsInStore[i].toString());
+    // In danh sách media trong store
+    public void printStore() {
+        System.out.println("********** STORE **********");
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            Media m = itemsInStore.get(i);
+            System.out.println((i + 1) + ". " + m.getTitle() + " - " + m.getCost() + " $");
         }
+        System.out.println("****************************");
+    }
+
+    // Truy cập danh sách để dùng ở nơi khác (nếu cần)
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
     }
 }
-

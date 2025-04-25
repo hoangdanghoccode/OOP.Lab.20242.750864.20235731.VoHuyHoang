@@ -1,28 +1,19 @@
 package hust.soict.hedspi.aims.media;
 
 public abstract class Media {
-    private int id;
-    private String title;
-    private String category;
-    private float cost;
-
     private static int nbMedia = 0;
+    private final int id;
+    private final String title;
+    private final String category;
+    private final float cost;
 
-    // Constructor cho lớp Media
     public Media(String title, String category, float cost) {
         this.title = title;
         this.category = category;
         this.cost = cost;
-        this.id = generateId();  // Gọi phương thức tạo ID
+        this.id = ++nbMedia;
     }
 
-    // Phương thức tạo ID tự động (tính theo số lượng đối tượng)
-    private static int generateId() {
-        nbMedia++;
-        return nbMedia;
-    }
-
-    // Getter và Setter cho các thuộc tính
     public int getId() {
         return id;
     }
@@ -31,34 +22,24 @@ public abstract class Media {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getCategory() {
         return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public float getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
-    // Phương thức toString để in thông tin chung
     @Override
-    public String toString() {
-        return "ID: " + id + " - " + title + " - " + category + " - " + cost + " $";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Media media = (Media) o;
+        return this.getTitle().equalsIgnoreCase(media.getTitle());
     }
 
-    // Phương thức kiểm tra tiêu đề
-    public boolean isMatch(String title) {
-        return this.title.equalsIgnoreCase(title);
+    @Override
+    public int hashCode() {
+        return title.toLowerCase().hashCode();
     }
 }

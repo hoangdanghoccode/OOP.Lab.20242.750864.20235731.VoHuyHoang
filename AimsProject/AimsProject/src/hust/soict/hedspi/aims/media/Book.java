@@ -3,46 +3,37 @@ package hust.soict.hedspi.aims.media;
 import java.util.ArrayList;
 
 public class Book extends Media {
-    private ArrayList<String> authors;
+    private final ArrayList<String> authors = new ArrayList<>();
 
-    // Constructor cho Book kế thừa từ Media
     public Book(String title, String category, float cost) {
-        super(title, category, cost);  // Gọi constructor của Media
-        this.authors = new ArrayList<>();
+        super(title, category, cost);
     }
 
-    // Getter và Setter cho 'authors'
     public ArrayList<String> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(ArrayList<String> authors) {
-        this.authors = authors;
-    }
-
-    // Phương thức thêm tác giả nếu tác giả chưa có trong danh sách
     public void addAuthor(String authorName) {
-        if (!authors.contains(authorName)) {  // Kiểm tra xem tác giả đã có trong danh sách chưa
+        if (!authors.contains(authorName)) {
             authors.add(authorName);
-            System.out.println(authorName + " đã được thêm vào danh sách tác giả.");
-        } else {
-            System.out.println(authorName + " đã là tác giả của cuốn sách.");
         }
     }
 
-    // Phương thức xóa tác giả nếu tác giả có trong danh sách
     public void removeAuthor(String authorName) {
-        if (authors.contains(authorName)) {  // Kiểm tra xem tác giả có trong danh sách không
-            authors.remove(authorName);
-            System.out.println(authorName + " đã được xóa khỏi danh sách tác giả.");
-        } else {
-            System.out.println(authorName + " không phải là tác giả của cuốn sách này.");
-        }
+        authors.remove(authorName);
     }
 
-    // Phương thức toString để in thông tin của Book
     @Override
-    public String toString() {
-        return "Book - " + getTitle() + " - " + getCategory() + " - Authors: " + authors + " - " + getCost() + " $";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Book book = (Book) o;
+        return this.getTitle().equals(book.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
