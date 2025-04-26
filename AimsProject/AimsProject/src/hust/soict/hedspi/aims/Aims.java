@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims;
+
 import hust.soict.hedspi.aims.cart.Cart;
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Aims {
 public static void main(String[] args) {
@@ -18,7 +19,7 @@ public static void main(String[] args) {
 	anOrder.removeDigitalVideoDisc(dvd2);
 	
 	anOrder.display();
-	System.out.println("Total Cost is: ");
-	System.out.printf("%.2f", anOrder.calculateCost());
+    
+	anOrder.searchByTitle("aladin");
 }
 }
