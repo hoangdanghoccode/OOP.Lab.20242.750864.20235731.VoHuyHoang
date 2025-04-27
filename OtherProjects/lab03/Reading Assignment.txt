@@ -1,0 +1,27 @@
+Lợi ích của Polymorphism (Đa hình) là gì?
+
+Polymorphism trong Java mang lại nhiều lợi ích quan trọng, bao gồm:
+
+Tính mở rộng và linh hoạt: Polymorphism cho phép các đối tượng của các lớp khác nhau có thể thay thế nhau mà không cần phải thay đổi mã nguồn của các lớp khác. Điều này giúp hệ thống dễ dàng mở rộng mà không làm ảnh hưởng đến các phần khác của chương trình.
+
+Giảm độ phức tạp: Thay vì phải sử dụng các cấu trúc điều kiện (như if-else hay switch-case), polymorphism cho phép gọi các phương thức của đối tượng mà không cần biết rõ lớp cụ thể của nó. Điều này giúp mã nguồn trở nên dễ đọc và bảo trì hơn.
+
+Tính tái sử dụng mã nguồn: Nhờ Polymorphism, ta có thể tái sử dụng mã nguồn của các lớp cha cho các lớp con mà không cần phải viết lại nhiều mã, giúp tiết kiệm thời gian và công sức trong việc phát triển ứng dụng.
+
+Kế thừa (Inheritance) hữu ích thế nào để đạt được Polymorphism trong Java?
+
+Kế thừa (Inheritance) là cơ sở để Polymorphism hoạt động trong Java. Khi một lớp con kế thừa từ lớp cha, nó có thể tái sử dụng mã nguồn của lớp cha và có thể ghi đè (override) các phương thức của lớp cha. Điều này tạo ra cơ hội để polymorphism hoạt động.
+
+Override các phương thức: Khi lớp con ghi đè các phương thức của lớp cha, lớp con có thể cung cấp một cách thực hiện riêng cho các phương thức đó. Polymorphism cho phép gọi phương thức của lớp con thông qua một đối tượng kiểu lớp cha, giúp đạt được tính linh hoạt khi chương trình chạy.
+
+Tính kế thừa trong polymorphism: Nếu một đối tượng thuộc lớp con nhưng được tham chiếu bởi một biến kiểu lớp cha, phương thức của lớp con sẽ được gọi khi gọi phương thức qua đối tượng đó. Đây chính là tính đa hình trong OOP.
+
+Sự khác nhau giữa Polymorphism và Inheritance trong Java là gì?
+
+Inheritance (Kế thừa): Là cơ chế trong OOP cho phép một lớp con kế thừa các thuộc tính và phương thức của lớp cha. Inheritance giúp tái sử dụng mã nguồn và xây dựng mối quan hệ giữa các lớp.
+
+Ví dụ: Lớp Animal có thể là lớp cha, và lớp Dog kế thừa từ Animal.
+
+Polymorphism (Đa hình): Là khả năng của đối tượng có thể được xử lý theo nhiều cách khác nhau. Polymorphism cho phép gọi một phương thức ở lớp cha nhưng thực tế lại sử dụng phương thức đã được ghi đè ở lớp con. Polymorphism không chỉ có thể được thực hiện qua kế thừa, mà còn có thể thông qua interface hoặc abstract class.
+
+Ví dụ: Phương thức sound() trong lớp Animal có thể được ghi đè ở lớp Dog và Cat để phát ra âm thanh khác nhau, mặc dù phương thức đó được gọi giống nhau.
