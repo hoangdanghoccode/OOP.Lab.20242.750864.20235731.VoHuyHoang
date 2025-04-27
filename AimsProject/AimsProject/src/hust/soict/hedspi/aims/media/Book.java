@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Book extends Media {
 
-	public Book() {
-		// TODO Auto-generated constructor stub
+	public Book(int id, String title, String category, float cost) {
+		super(id, title, category, cost);
 	}
     
 	private List<String> authors = new ArrayList<String>();
